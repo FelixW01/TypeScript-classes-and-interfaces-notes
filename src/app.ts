@@ -2,7 +2,8 @@ class Department {
   // private id: string;
   //   private name: string;
   //only methods within the class can affect the "private" employees, "readonly" will stop it from being changed.
-  private employees: string[] = [];
+  //protected are only accessible to the instantiated class and also inherited classes
+  protected employees: string[] = [];
   constructor(private readonly id: string, public name: string) {
     // this.name = n;
     // this.id= id;
@@ -30,6 +31,12 @@ class BusinessDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     super(id, "IT");
   }
+  addEmployee(name: string) {
+    if (name === "Max") {
+      return;
+    }
+    this.employees.push(name);
+  }
 
   addReport(text: string) {
     this.reports.push(text);
@@ -49,6 +56,11 @@ it.describe();
 
 const business = new BusinessDepartment("d2", []);
 business.addReport("Something went wrong...");
+
+business.addEmployee("Max");
+business.addEmployee("Manu");
 business.printReports();
+business.printEmployeeInformation;
+console.log(business);
 // const businessCopy = { name: "DUMMY", describe: business.describe };
 // businessCopy.describe();
