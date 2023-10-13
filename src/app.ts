@@ -28,8 +28,25 @@ class ITDepartment extends Department {
 }
 
 class BusinessDepartment extends Department {
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error(" No report found.");
+  }
+
+  set mostRecentReport(value: string) {
+    if (!value) {
+      throw new Error("Please pass in a valid value");
+    } else {
+      this.addReport(value);
+    }
+  }
   constructor(id: string, private reports: string[]) {
     super(id, "IT");
+    this.lastReport = reports[0];
   }
   addEmployee(name: string) {
     if (name === "Max") {
@@ -55,12 +72,15 @@ console.log(it);
 it.describe();
 
 const business = new BusinessDepartment("d2", []);
+
+business.mostRecentReport = "Year end report";
 business.addReport("Something went wrong...");
+console.log(business.mostRecentReport);
 
 business.addEmployee("Max");
 business.addEmployee("Manu");
-business.printReports();
-business.printEmployeeInformation;
+// business.printReports();
+// business.printEmployeeInformation;
 console.log(business);
 // const businessCopy = { name: "DUMMY", describe: business.describe };
 // businessCopy.describe();
