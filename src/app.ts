@@ -1,4 +1,5 @@
 class Department {
+  static fiscalYear = 2023;
   // private id: string;
   //   private name: string;
   //only methods within the class can affect the "private" employees, "readonly" will stop it from being changed.
@@ -8,6 +9,10 @@ class Department {
     // this.name = n;
     // this.id= id;
   }
+  static createEmployee(name: string) {
+    return { name: name };
+  }
+
   describe(this: Department) {
     console.log(`Department (${this.id}) : ${this.name}`);
   }
@@ -72,6 +77,9 @@ class BusinessDepartment extends Department {
     console.log(this.reports);
   }
 }
+
+const employee1 = Department.createEmployee("Max");
+console.log(employee1, Department.fiscalYear);
 
 const it = new ITDepartment("d1", ["Felix"]);
 it.addEmployee("Felix Willem");
