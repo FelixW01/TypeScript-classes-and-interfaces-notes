@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   static fiscalYear = 2023;
   // private id: string;
   //   private name: string;
@@ -13,9 +13,9 @@ class Department {
     return { name: name };
   }
 
-  describe(this: Department) {
-    console.log(`Department (${this.id}) : ${this.name}`);
-  }
+  abstract describe(this: Department): void;
+  // console.log(`Department (${this.id}) : ${this.name}`);
+
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
@@ -37,7 +37,7 @@ class ITDepartment extends Department {
 
 class BusinessDepartment extends Department {
   private lastReport: string;
-
+  private static instance: BusinessDepartment;
   get mostRecentReport() {
     if (this.lastReport) {
       return this.lastReport;
@@ -52,9 +52,17 @@ class BusinessDepartment extends Department {
       this.addReport(value);
     }
   }
-  constructor(id: string, private reports: string[]) {
+  private constructor(id: string, private reports: string[]) {
     super(id, "Business");
     this.lastReport = reports[0];
+  }
+
+  static getInstance() {
+    if (BusinessDepartment.instance) {
+      return this.instance;
+    }
+    this.instance = new BusinessDepartment("d2", []);
+    return this.instance;
   }
 
   describe() {
@@ -88,7 +96,10 @@ it.printEmployeeInformation();
 console.log(it);
 it.describe();
 
-const business = new BusinessDepartment("d2", []);
+// const business = new BusinessDepartment("d2", []);
+const business = BusinessDepartment.getInstance();
+const business2 = BusinessDepartment.getInstance();
+console.log(business, business2);
 
 business.mostRecentReport = "Year end report";
 business.addReport("Something went wrong...");
@@ -96,8 +107,9 @@ console.log(business.mostRecentReport);
 
 business.addEmployee("Max");
 business.addEmployee("Manu");
-business.printReports();
+business.describe();
+// business.printReports();
 // business.printEmployeeInformation;
-console.log(business);
+// console.log(business);
 // const businessCopy = { name: "DUMMY", describe: business.describe };
 // businessCopy.describe();
