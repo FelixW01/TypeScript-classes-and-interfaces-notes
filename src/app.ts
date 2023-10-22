@@ -1,18 +1,24 @@
-interface Person {
+// Can be implimented by class to provide type checking of objects
+interface Greetable {
   name: string;
-  age: number;
 
   greet(phrase: string): void;
 }
+// You can pass multiple interfaces on a class
+class Person implements Greetable {
+  name: string;
+  age = 30;
+  constructor(n: string) {
+    this.name = n;
+  }
 
-let user1: Person;
-
-user1 = {
-  name: "felix",
-  age: 23,
   greet(phrase: string) {
     console.log(phrase + " " + this.name);
-  },
-};
+  }
+}
 
+let user1: Greetable;
+
+user1 = new Person("Felix");
 user1.greet(" Hi there - I am ");
+console.log(user1);
