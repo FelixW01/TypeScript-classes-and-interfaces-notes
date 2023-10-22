@@ -11,7 +11,8 @@ add = (n1: number, n2: number) => {
 };
 interface Named {
   // Created object name is instantiated once and is readonly, can't be changed after
-  readonly name: string;
+  readonly name?: string;
+  outputName?: string;
 }
 
 // Can be implimented by class to provide type checking of objects
@@ -21,10 +22,12 @@ interface Greetable extends Named {
 }
 // You can pass multiple interfaces on a class
 class Person implements Greetable {
-  name: string;
+  name?: string;
   age = 30;
-  constructor(n: string) {
-    this.name = n;
+  constructor(n?: string) {
+    if (n) {
+      this.name = n;
+    }
   }
 
   greet(phrase: string) {
@@ -38,7 +41,7 @@ let user1: Greetable;
 
 // User1 is constrained to being greetable, on top of the blueprint Person class making the
 // created object even more strict.
-user1 = new Person("Felix");
+user1 = new Person();
 // changing name throws an error because the name property is readonly.
 // user1.name = ('Max')
 
