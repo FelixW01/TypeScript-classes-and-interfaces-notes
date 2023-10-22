@@ -17,8 +17,12 @@ class Person implements Greetable {
   }
 }
 
+// User1 HAS to be greetable, having at least a name with a type of string and a greet method
+// with the input of phrase and an a return of nothing.
 let user1: Greetable;
 
+// User1 is constrained to being greetable, on top of the blueprint Person class making the
+// created object even more strict.
 user1 = new Person("Felix");
 user1.greet(" Hi there - I am ");
 console.log(user1);
