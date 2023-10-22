@@ -1,3 +1,14 @@
+// type AddFn = (a: number, b: number) => number;
+// Interface can be used as an alternative option to type, custom types are usually more common
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
 interface Named {
   // Created object name is instantiated once and is readonly, can't be changed after
   readonly name: string;
