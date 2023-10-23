@@ -113,3 +113,13 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: "bird", flyingSpeed: 20 });
+
+// const userInputElement = <HTMLInputElement>(
+//   document.getElementById("user-input")!
+// );
+// ! indicates that the value can't be null
+const userInputElement = document.getElementById(
+  "user-input"
+)! as HTMLInputElement;
+
+userInputElement.value = "Hi there";
