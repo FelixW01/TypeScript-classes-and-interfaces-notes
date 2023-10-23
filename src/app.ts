@@ -22,6 +22,16 @@ type Numeric = number | boolean;
 
 type Universal = Combineable & Numeric;
 
+//function overload
+// if we call the function with 2 numbers, it gets back a number
+function add(a: number, b: number): number;
+// if we call the function with 2 strings, it gets a string
+function add(a: string, b: string): string;
+// if we call the function with number & string, returns a string
+function add(a: number, b: string): string;
+// if we call the function with string & number, returns a string
+function add(a: string, b: number): string;
+
 function add(a: Combineable, b: Combineable) {
   // type guard, if a or b is string, turn the output to string by concatenation
   // if none of the types are string, then return the number calculation
@@ -30,6 +40,9 @@ function add(a: Combineable, b: Combineable) {
   }
   return a + b;
 }
+
+const result = add("Felix", " Willem");
+result.split(" ");
 
 type UnknownEmployee = Employee | Admin;
 
