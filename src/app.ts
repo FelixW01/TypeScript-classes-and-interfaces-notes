@@ -17,3 +17,20 @@ function merge<T extends Object, U extends Object>(objA: T, objB: U) {
 
 const mergedObj = merge({ name: "Felix", hobbies: ["Music"] }, { age: 23 });
 console.log(mergedObj);
+
+interface Lengthy {
+  length: number;
+}
+
+// Generic function, a bit unspecific, extends lengthy to tell TS that we're going to get a .length value
+function countAndDescribe<T extends Lengthy>(element: T) {
+  let descriptionText = "Got no value.";
+  if (element.length === 0) {
+    return console.log(descriptionText);
+  } else {
+    descriptionText = "Got " + element.length + " elements.";
+    return [element, descriptionText];
+  }
+}
+
+console.log(countAndDescribe(["Sports", "Cooking"]));
