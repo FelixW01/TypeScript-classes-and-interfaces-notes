@@ -77,3 +77,22 @@ const numberStorage = new DataStorage<number>();
 // objStorage.addItem(maxObj);
 // objStorage.removeItem(maxObj);
 // console.log(objStorage.getItems());
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, date: Date) {
+  let courseGoal: Partial<CourseGoal> = {};
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = date;
+  return courseGoal as CourseGoal;
+}
+
+// Readonly stopt the array from being changed in any way.
+const names: Readonly<string[]> = ['Felix', 'Max'];
+// names.push('Anna');
+// names.pop();
