@@ -63,10 +63,11 @@ function Log4(target: any, name: string | Symbol, position: number) {
   console.log(position);
 }
 class Product {
+  // Property decorator
   @Log
   title: string;
   private _price: number;
-
+  // Method Decorator
   @Log2
   set price(val: number) {
     if (val > 0) {
@@ -80,8 +81,9 @@ class Product {
     this.title = t;
     this._price = p;
   }
-
+  // Accessor Decorator
   @Log3
+  // Parameter Decorator
   getPriceWithTax(@Log4 tax: number) {
     return this._price * (1 + tax);
   }
