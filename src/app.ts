@@ -44,6 +44,9 @@ function extractAndConvert<T extends Object, U extends keyof T>(
 
 console.log(extractAndConvert({ name: "Felix" }, "name"));
 
+// For generic types, you can only choose 1 of the listed types
+// For union types, you can choose multipler of the listed types, which brings more problem
+// depending on what you need to do
 class DataStorage<T extends string | number | boolean> {
   private data: T[] = [];
 
