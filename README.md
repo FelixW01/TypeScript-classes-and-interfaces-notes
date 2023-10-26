@@ -1,4 +1,4 @@
-# Notes for TypeScript
+# TypeScript Learning Notes
 
 ## App Repo 
 https://github.com/FelixW01/TypeScript-classes-and-interfaces-notes
