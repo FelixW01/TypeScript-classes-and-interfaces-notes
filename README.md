@@ -1,10 +1,10 @@
-# Classes and Interfaces notes for TypeScript
+# TypeScript Learning Notes
 
 ## App Repo 
-https://github.com/FelixW01/TypeScript-classes-and-interfaces-notes
+https://github.com/FelixW01/TypeScript-leaning-notes
 
 ## Description
-Notes on Typescript Classes and Interfaces.
+Notes on the journey of learning Typescript.
 
 ## Contributing
 Felix Willem
