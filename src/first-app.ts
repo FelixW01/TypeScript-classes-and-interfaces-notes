@@ -12,6 +12,8 @@ let isValid = true;
 let userId: string | number = "abc1";
 userId = 123;
 
+// object types
+
 // let user: object;
 let user: {
   name: string;
@@ -26,3 +28,10 @@ user = {
   isAdmin: true,
   id: "abc", // or 123
 };
+
+// array types
+// hobbies is an array of strings
+let hobbies: string[]; //number[], boolean[], {name: string; age: number}[]
+
+hobbies = ["Sports", "Cooking", "Reading"];
+// hobbies = [1, 2, 3]
