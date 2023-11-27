@@ -1,8 +1,8 @@
 // type AddFn = (a: number, b: number) => number;
 // Interface can be used as an alternative option to type, custom types are usually more common
-interface AddFn {
-  (a: number, b: number): number;
-}
+// interface AddFn {
+//   (a: number, b: number): number;
+// }
 
 let add2: AddFn;
 

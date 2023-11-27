@@ -8,19 +8,21 @@ let userAge = 34;
 let isValid = true;
 
 // string, number, boolean
+type StringOrNum = string | number;
 
-let userId: string | number = "abc1";
+let userId: StringOrNum = "abc1";
 userId = 123;
 
 // object types
-
-// let user: object;
-let user: {
+type User = {
   name: string;
   age: number;
   isAdmin: boolean;
   id: string | number;
 };
+
+// let user: object;
+let user: User;
 
 user = {
   name: "Max",
@@ -43,13 +45,12 @@ function add(a: number, b: number): void {
   console.log(result);
 }
 
+// seperate type to be reused
+type AddFn = (a: number, b: number) => number;
+
 // function as a value syntax
-function calculate(
-  a: number,
-  b: number,
-  calcFn: (a: number, b: number) => number
-) {
+function calculate(a: number, b: number, calcFn: AddFn) {
   calcFn(a, b);
 }
 
-calculate(2, 5, add)
+calculate(2, 5, add);

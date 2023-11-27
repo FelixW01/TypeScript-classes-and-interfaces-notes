@@ -3,10 +3,8 @@ var userName = "Max";
 userName = "Max";
 var userAge = 34;
 var isValid = true;
-// string, number, boolean
 var userId = "abc1";
 userId = 123;
-// object types
 // let user: object;
 var user;
 user = {
