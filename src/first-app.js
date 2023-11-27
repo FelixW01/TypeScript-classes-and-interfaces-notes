@@ -26,3 +26,8 @@ function add(a, b) {
     var result = a + b;
     console.log(result);
 }
+// function as a value syntax
+function calculate(a, b, calcFn) {
+    calcFn(a, b);
+}
+calculate(2, 5, add);
