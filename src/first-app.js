@@ -20,3 +20,9 @@ user = {
 var hobbies; //number[], boolean[], {name: string; age: number}[]
 hobbies = ["Sports", "Cooking", "Reading"];
 // hobbies = [1, 2, 3]
+// function types
+// Use void when function doesn't have any return statement
+function add(a, b) {
+    var result = a + b;
+    console.log(result);
+}
