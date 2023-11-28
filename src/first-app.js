@@ -34,3 +34,11 @@ creds = {
     password: "abc",
     email: "test@example.com",
 };
+// you are required to add the properties from  credentials
+// class AuthCredentials implements Credentials {
+//   email: string;
+//   password: string;
+//   userName: string;
+// }
+// function login(credentials: Credentials) {}
+// login(new AuthCredentials());
