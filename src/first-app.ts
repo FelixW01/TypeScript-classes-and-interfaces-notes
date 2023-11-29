@@ -115,10 +115,18 @@ admin = {
   userName: "Felix",
 };
 
+type Role = "admin" | "user" | "editor";
+
 // literals, exact string has to be provided, can have multiples followed by a union
-let role: "admin" | "user" | "editor"; // 'admin, 'user, 'editor'
+let role: Role; // 'admin, 'user, 'editor'
 
 role = "admin";
 role = "user";
 role = "editor";
 
+// adding an extra guard or checks in conjunction with the union types are common
+function performAction(action: string, role: Role) {
+  if (role === "admin" && typeof action === "string") {
+    console.log(role);
+  }
+}
