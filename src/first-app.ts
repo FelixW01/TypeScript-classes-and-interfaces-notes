@@ -130,3 +130,37 @@ function performAction(action: string, role: Role) {
     console.log(role);
   }
 }
+
+// Generic Types
+let roles: Array<Role>;
+roles = ["admin", "editor"];
+
+// Array of a placeholder type <T>
+type DataStorage2<T> = {
+  storage: T[];
+  add: (data: T) => void;
+};
+
+const textStorage2: DataStorage2<string> = {
+  storage: [],
+  add(data) {
+    this.storage.push(data);
+  },
+};
+
+// You can use the placeholder with specific other types
+// const userStorage: DataStorage<User> = {
+//   storage: [],
+//   add(user) {},
+// };
+
+function merge2<T, U>(a: T, b: U) {
+  return {
+    ...a,
+    ...b,
+  };
+}
+
+const newUser = merge2({ name: "Felix" }, { age: 23 });
+
+newUser.name;
