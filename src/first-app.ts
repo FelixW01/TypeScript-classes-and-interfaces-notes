@@ -79,3 +79,38 @@ creds = {
 // function login(credentials: Credentials) {}
 
 // login(new AuthCredentials());
+
+// type Admin2 = {
+//   permissions: string[];
+// };
+
+// type AppUser = {
+//   userName: string;
+// };
+
+// merge user types with & instead of a union | that would mean it's one or the other
+// type AppAdmin = Admin2 & AppUser;
+
+// let admin: AppAdmin;
+
+// admin = {
+//   permissions: ["login"],
+//   userName: "Felix",
+// };
+
+interface Admin2 {
+  permissions: string[];
+}
+
+interface AppUser {
+  userName: string;
+}
+
+interface AppAdmin extends Admin2, AppUser {}
+
+let admin: AppAdmin;
+
+admin = {
+  permissions: ["login"],
+  userName: "Felix",
+};
