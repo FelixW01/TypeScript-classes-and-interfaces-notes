@@ -114,3 +114,11 @@ admin = {
   permissions: ["login"],
   userName: "Felix",
 };
+
+// literals, exact string has to be provided, can have multiples followed by a union
+let role: "admin" | "user" | "editor"; // 'admin, 'user, 'editor'
+
+role = "admin";
+role = "user";
+role = "editor";
+
